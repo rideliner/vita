@@ -6,8 +6,22 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
+*.dll
 
 # Compiled Static libraries
+*.lib
 *.lai
 *.la
 *.a
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Preprocessed files
+*.i
+
+# Gedit Backups
+*~
+
