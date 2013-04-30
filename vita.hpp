@@ -18,13 +18,13 @@
 # endif // Windows & Unicode
 #endif // VITA_ENTRY_POINT
 
-#include "Ortus.hpp"
-#include "Orcus.hpp"
+#include "ortus.hpp"
+#include "orcus.hpp"
 
 #define main(...) \
-    VitaMain(const Ortus&/*, const Orcus&*/); \
+    VitaMain(Ortus&, Orcus&); \
     int VITA_ENTRY_POINT(int argc, Ortus::ArgvType argv, Ortus::EnvType env) \
-    { return VitaMain(Ortus::initialize(argc, argv, env)/*, Orcus::getInstance()*/); } \
-    int VitaMain(const Ortus& ortus/*, const Orcus& orcus*/)
+    { return VitaMain(Ortus::initialize(argc, argv, env), Orcus::initialize()); } \
+    int VitaMain(Ortus& ortus, Orcus& orcus)
 
 #endif // VITA_VITA_HPP

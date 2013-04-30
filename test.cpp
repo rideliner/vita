@@ -5,20 +5,26 @@
  *  @copyright Boost Software License, v1.0
 **/
 
-#include "Vita.hpp"
+#include "vita.hpp"
 
 #include <iostream>
+#include <chrono>
 
 void function()
 {
-    const Ortus& ortus = Ortus::getInstance();
+    Ortus& ortus = Ortus::getInstance();
+    Orcus& orcus = Orcus::getInstance();
 
     for (auto& x : ortus.getEnvironmentVariables())
         std::cout << x.first << " => " << x.second << std::endl;
+
+//    orcus.cancelSelfDestruct();
 }
 
-int main(const Ortus& ortus, const Orcus& orcus)
+int main(Ortus& ortus, Orcus& orcus)
 {
+    orcus.selfDestructLaterOrOnExit(std::chrono::seconds(5));
+
     for (const std::string& s : ortus.getArguments())
         std::cout << s << std::endl;
 

@@ -16,15 +16,11 @@
 # define ORTUS_CHARACTER_TYPE char
 #endif // ORTUS_CHARACTER_TYPE
 
-#ifndef ORTUS_STRING_TYPE
-# define ORTUS_STRING_TYPE std::string
-#endif // ORTUS_STRING_TYPE
-
 class Ortus
 {
   public:
     typedef ORTUS_CHARACTER_TYPE CharType;
-    typedef ORTUS_STRING_TYPE StrType;
+    typedef std::basic_string<CharType> StrType;
     typedef const CharType** ArgvType;
     typedef CharType** EnvType;
     typedef std::vector<StrType> ArgsType;
@@ -79,7 +75,7 @@ class Ortus
     {
         return env;
     }
-    
+
     friend int VITA_ENTRY_POINT(int, ArgvType, EnvType);
 };
 
