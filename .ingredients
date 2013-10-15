@@ -1,0 +1,10 @@
+
+use_defaults
+
+load "#{Bakery::INGREDIENTS_DIR}/c++.ingredient"
+
+ingredient :cpp => Bakery::Ingredient::Cpp::SourceFile
+ingredient :hpp => Bakery::Ingredient::Cpp::HeaderFile
+ingredient :headerMarker => Bakery::Ingredient::Cpp::HeaderMarker
+ingredient :test => Bakery::Ingredient::Cpp::TestFile
+

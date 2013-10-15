@@ -1,0 +1,25 @@
+
+require 'rake/clean'
+
+MACROS = "-D_GLIBCXX_USE_NANOSLEEP"
+CPP_FLAGS = "-std=c++11"
+LINK_FLAGS = "-I../include -pthread"
+
+TARGET = 'test.out'
+
+file 'main.cpp'
+
+file TARGET => 'main.cpp' do |t|
+  sh "g++ #{CPP_FLAGS} #{LINK_FLAGS} #{MACROS} #{t.prerequisites[0]} -o #{t.name}"
+end
+
+task :compile => TARGET
+
+task :run => :compile do
+  sh "./#{TARGET}"
+end
+
+CLEAN.include TARGET
+
+task :default => :run
+
