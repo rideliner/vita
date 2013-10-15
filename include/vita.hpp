@@ -1,14 +1,16 @@
-/*! @file Vita.hpp
- *  @brief (Life) - Give users simplified access to Ortus and Orcus.
- *  @details Add a wrapper to the programs entry point to pass in the arguments in a different way.
- *  @author Nathan Currier
- *  @copyright Boost Software License, v1.0
+/*!
+ * Copyright (c) 2013
+ * Nathan Currier
+ *
+ * Use, modification, and distribution are all subject to the
+ * Boost Software License, Version 1.0. (See the accompanying
+ * file LICENSE.md or at http://rideliner.tk/LICENSE.html).
+ *
+ * Add a wrapper to a program's entry point.
 **/
 
-//! @warning Vita cannot be used with WinMain or wWinMain without hazardous consequences.
-
-#ifndef VITA_VITA_HPP
-#define VITA_VITA_HPP
+#ifndef _VITA_HPP
+#define _VITA_HPP
 
 #ifndef VITA_ENTRY_POINT
 # if (defined __WIN32__ || defined _WIN32) && (defined UNICODE || defined _UNICODE)
@@ -18,8 +20,8 @@
 # endif // Windows & Unicode
 #endif // VITA_ENTRY_POINT
 
-#include "ortus.hpp"
-#include "orcus.hpp"
+#include "vita/ortus.hpp"
+#include "vita/orcus.hpp"
 
 #define main(...) \
     VitaMain(Ortus&, Orcus&); \
@@ -27,4 +29,5 @@
     { return VitaMain(Ortus::initialize(argc, argv, env), Orcus::initialize()); } \
     int VitaMain(Ortus& ortus, Orcus& orcus)
 
-#endif // VITA_VITA_HPP
+#endif // _VITA_HPP
+
