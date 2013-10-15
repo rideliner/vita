@@ -1,0 +1,28 @@
+
+name 'vita'
+defaultAuthor 'Nathan Currier'
+
+description ""
+summary Bakery[:description]
+
+load_if_exists "#{Dir.home}/.icing/copyright.icing"
+
+dir 'include' do
+  headerMarker
+
+  dir 'vita' do
+    hpp 'ortus.hpp'
+    hpp 'orcus.hpp'
+  end
+
+  hpp 'vita.hpp'
+end
+
+dir 'test' do
+  cpp 'main.cpp', :main, :vita
+
+  file 'rakefile'
+end
+
+file 'LICENSE.md'
+file 'README.md'
